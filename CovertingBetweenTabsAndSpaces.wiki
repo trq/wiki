@@ -1,0 +1,18 @@
+Converting between tabs and spaces
+
+The command for converting between tabs and spaces is:
+
+:retab!
+More specifically, to convert tabs to spaces, run:
+
+:set expandtab
+:retab!
+And to convert spaces to tabs, run:
+
+:set noexpandtab
+:retab!
+Strip trailing whitespace
+
+Strip trailing spaces throughout an entire file by running this substitution command:
+
+:%s/\s\+$//e
