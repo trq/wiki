@@ -1,1 +1,5 @@
-VimTips
+== Linux Tips & Stuff ==
+
+== Vim ==
+
+[[Vim Tips]]
