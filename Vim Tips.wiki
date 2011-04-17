@@ -1,2 +1,9 @@
+[[Cheat Sheet]]
+[[Sort list of vim commands]]
 [[Converting between tabs and spaces]]
 [[Delete blank lines]]
+[[Enable spell checking]]
+[[Working with external commands]]
+[[Using Markers]]
+[[PHP Manual]]
+

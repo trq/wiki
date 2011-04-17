@@ -1,0 +1,3 @@
+Install pman from https://github.com/rbakels/PHP-Documentation
+
+

@@ -1,0 +1,17 @@
+You are writing, and you suddenly realize you have to change sentences
+in a previous section to support what you are writing in this section.
+The problem is that you have to remember where you are right now so that
+you can come back to it later. Can't Vim remember it for me? This can be
+achieved using marks.
+
+You can create a mark by pressing m followed by the name of the mark
+which is a single character from a-zA-Z. For example, pressing ma
+creates the mark called 'a'.
+
+Pressing 'a returns the cursor to line of the mark. Pressing `a will
+take you to the exact line and column of the mark.
+
+The best part is that you can jump to this position using these marks
+any time thereafter.
+
+See :help mark-motions for more details.

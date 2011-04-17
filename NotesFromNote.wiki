@@ -1,0 +1,55 @@
+001 23/08/06 12:42:34 mount -o loop -t iso9660 example.iso /mnt
+006 28/09/06 07:51:32 antiword is a program for reading .doc files in plain text
+007 03/10/06 21:33:44 mysql CREATE USER 'thorpe'@'%' IDENTIFIED BY '**********';
+008 03/10/06 21:33:58 mysql GRANT ALL PRIVILEGES ON *.* TO 'thorpe'@'%' WITH GRANT OPTION;
+009 05/10/06 23:31:19 nc -v -w 2 oblivion 1-100
+010 15/10/06 08:58:23 diff -urNp foo bar > foo2bar.patch
+011 15/10/06 08:59:24 patch -p1 < foo2bar.patch
+012 25/10/06 23:38:34 rsnapshot is the name of that backup prog your looking for
+014 07/11/06 23:13:56 use gpasswd to edit a users groups
+015 08/11/06 23:42:26 dont forget #gentoo-au on irc.freenode.net
+017 14/11/06 12:02:22 fucked around with login perms on all machines re http://blog.bananasplit.info/?m=200507
+018 19/11/06 14:53:52 cvs import -m 'initial commit' project thorpe release0
+019 19/11/06 14:54:35 mount -o remount,rw /dir
+020 20/11/06 13:37:34 s exportfs -ra
+021 22/11/06 11:07:35 cvs export -r airbk_1_2 -d airbk-1.2 airbk
+022 22/11/06 11:08:13 cvs tag air_1_2
+023 27/11/06 00:49:35 fluxspace might be something to check out
+024 28/11/06 14:18:49 iMac - change the volume of the startup with nvsetvol, included with the powerpc-utils.
+025 07/12/06 00:15:52 run 'ybin -v' after configuing yaboot.conf for a new ppc kernel
+026 13/12/06 10:03:39 to use an old config on a new kernel, copy it to /usr/src/linux and run 'make oldconfig'
+028 13/12/06 11:44:45 1> stdout 2> stderr
+029 20/12/06 10:22:27 perms 1 = x, 2 = w, 3 = r
+030 27/12/06 13:51:24 death by strobe
+031 10/01/07 14:53:24 create # tar -cvf tsp-linux.tar tools
+032 10/01/07 14:53:54 append # tar -rvf tsp-linux.tar sources
+033 10/01/07 14:54:19 pack # gzip tsp-linux.tar
+034 12/01/07 11:33:35 sed -i -e '/^dev-db\/mysql/d' /etc/portage/package.keywords
+036 20/01/07 17:12:59 single user mode boot : kernel /<path-and-kernelname> root=/dev/xxxx single init=/bin/bash
+037 24/01/07 11:09:51 gtkpod for ipod / itunes
+038 25/01/07 09:43:37 bashburn is the new cd burner
+039 25/01/07 09:43:51 rip is the new cd ripper
+040 25/01/07 10:17:19 rip -m /store/mp3s/dir -T -f "%N-%A-%T-%S" -c -b 160
+041 07/02/07 12:07:02 anniversary 9/9 2005
+042 16/02/07 08:41:56 hold down c to boot the G3 and the laptop (toshi) into a CD.
+043 29/03/07 14:44:36 bash string replace foo with bar echo ${var/foo/bar}
+044 04/04/07 10:26:37 to stop isp detecting ph number through dialup add 1832 to the isp conn number.
+045 18/05/07 14:04:45 use last | grep begins to get rough age of system.
+046 28/06/07 02:06:04 grep -Hrl foo dir/ will list names of files containing the text foo in dir.
+047 18/12/07 09:11:07 tar & gzip # tar -czvf file.gz dir
+048 18/12/07 09:11:38 untar & ungzip # tar -xzvf file.gz
+049 20/12/07 14:35:19 svn import -m importing test over ssh+svn foo2 svn+ssh://toshi/var/svn/foo/trunk
+050 20/12/07 14:35:41 svn co svn+ssh://toshi/var/svn/foo/trunk testcheckout
+051 08/01/08 12:42:45 vim ":r !cmd" insert output of cmd into current cursor position
+052 21/01/08 09:30:24 update-rc.d
+053 13/02/08 12:42:00 persistresist
+061 25/03/09 10:27:33 rename 'y/A-Z/a-z/' file
+062 25/03/09 10:28:06 rename 's/\ /_/' file
+063 01/04/09 11:36:21 s mount -t smbfs -o username=thorpe,password=xxx,uid=1000,gid=1000 //192.168.10.10/studio /mnt/studio
+067 28/07/09 21:07:32 sudo alsaconf to configure alsa
+068 03/08/09 21:31:19 edited /etc/nssswitch.conf to resolv dns issue.
+069 04/09/09 16:14:56 sed -r -i 's/(require_once)/\/\/ \1/g' foo
+071 20/09/09 18:40:02 Use sshfs to remote mount
+074 16/11/09 14:12:17 dd if=/dev/dvd of=dvd.iso
+075 16/12/09 20:37:31 polpot
+079 06/12/09 10:30:01 TIMESTAMP=`date +%Y-%m-%d-%H%M`

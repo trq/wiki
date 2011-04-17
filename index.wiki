@@ -2,4 +2,10 @@
 
 == Vim ==
 
+Allot of these tips came directly from http://vimcasts.org
+
 [[Vim Tips]]
+
+== Notes ==
+
+[[NotesFromNote]]

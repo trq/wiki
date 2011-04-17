@@ -1,0 +1,53 @@
+Basics
+:e filename Open filename for edition
+:w  Save file
+:q  Exit Vim
+:w! Exit Vim without saving
+Search
+/word   Search word from top to bottom
+?word   Search word from bottom to top
+/jo[ha]n    Search john or joan
+/\< the Search the, theatre or then
+/the\>  Search the or breathe
+/\< the\>   Search the
+/\< ¦.\>    Sline by hello
+:%s/$/Harry/g   Replace the end of each line by Harry
+string/d    Delete all lines containing which didn’t contain string
+:s/Bill/Steve/  Replace the first occurence of Bill by Steve in current line
+:s/Bill/Steve/g Replace Bill by Steve in current line
+:%s/Bill/Steve/g    Replace Bill by Steve in all the file
+:%s/\r//g   Delete DOS carriage returns (^M)
+:%s/\r/\r/g Transform DOS carriage
+VU  Uppercase line
+g~~ Invert case
+vEU Switch word to uppercase
+vE~ Modify word case
+ggguG   Set all text to lowercasts first letter of each line to uppercase
+:%s/.*/\l&  Sets first letter o line to lowercase
+Read/Write files
+:1,10 w outfile Saves lines 1 to 10 in outfile
+:1,10 w >> outfile  Appends lines 1 to 10 to outfile
+:r infile   Insert the content of infile
+:23r infile Insert the content of infile under line 23
+File explorer
+:e .    Open integrated file explorer
+:Sex    Split window and opat the current position
+5!!fmt  Align the next 5 lines
+Tabs
+:tabn in all tabs
+:tab ball   Puts all open files in tabs
+Window spliting
+:e filename Edit filename in current window
+:split filename Split the window and open filename
+ctrl-w up arrow Puts cursor in top window
+ctrl-w ctrl-w   Puts cursor in next window
+ctrl-w_ Maximise current window
+ctrl-w= Gives the same size to all windows
+10 ctrlines 4 spaces as indent size
+ctrl-t, ctrl-d  Indent/un-indent in insert mode
+>>  Indent
+<<  Un-indent
+Syntax highlighting
+:syntax on  Turn on syntax highlighting
+:syntax off Turn off syntax highlighting
+:set syntax=perl    Force syntax highlighting
