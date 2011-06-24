@@ -1,0 +1,97 @@
+Modernize Your Git Workflow
+
+by Laust Rud Jacobsen on May 9, 2011
+
+Years ago I read Streamed Lines: Branching Patterns for Parallel Software
+Development, and many of the thoughts have stayed me. Think of it as a catalogue
+of Design Patterns for version control workflows. There are so many ways
+to efficiently use branches to both collaborate and isolate work. Lively
+discussions can be had on how to best organize a repository, and having a great
+overview of the options makes for more informed discussions.
+
+I have previously described how I’ve been using small hack && ship commands
+to simplify and streamline my personal git workflow. Recently I’ve switched
+to using the Git Flow setup as my branching and release workflow. Setting up
+git-flow
+
+Installing the git-flow toolset on OS X is trivial using the homebrew installer:
+
+    brew install git-flow
+
+The git-flow project also has instructions for installation on Linux and Windows.
+
+Installing git-flow adds a few helpful commands to the git environment for
+creating and managing branches for features and releases. A fresh git repository
+is born with a master branch. In the default git-flow setup, this is where
+the current production release lives. Furthermore, a branch called develop is
+created, this is where development takes place. Note that git-flow is just a
+series of shortcuts to having a development branch and a production branch with
+sensible ways of shuttling changes back and forth. After installing the git-flow
+package, configure your local repository for git-flow use with:
+
+    git flow init
+
+You can most likely accept the defaults by pressing enter at each question –
+this also makes it easier for others to initialize git-flow in their working
+copy, as all are using the same defaults. The only change from running the init
+command is two [gitflow] sections in your .git/config file looking like this:
+
+    [gitflow "branch"]
+        master = master
+        develop = develop
+    [gitflow "prefix"]
+        feature = feature/
+        release = release/
+        hotfix = hotfix/
+        support = support/
+        versiontag =
+
+It’s no more magic than that. Consult the built-in help with:
+
+    git flow
+
+If you’ve got the bash-completion package installed, you can use
+tab-completion for git-flow commands and arguments. Highly recommended. Working
+on a feature
+
+Start work on a feature – say feature 77 from your issue-tracker:
+
+    git flow feature start 77-speedup-yak-shaving
+
+This creates a new regular local git branch called
+feature/77-speedup-yak-shaving based on the current develop and places you on
+it. Want to share your work in progress with others? Use:
+
+    git flow feature publish 77-speedup-yak-shaving
+
+This pushes the branch, and sets up your local branch to track the remote branch
+in one easy step. The regular git push and git pull --rebase work as you would
+expect here. There is nothing special about branches created by git-flow, they
+are just conveniently named and managed.
+
+All done with a feature? Rebase your feature on the current develop branch, then
+merge it in:
+
+    git flow feature rebase
+    git flow feature finish 77-speedup-yak-shaving
+
+With these two steps, you end up on develop with your feature merged in. Run
+your test-suite, and push to a central repository as appropriate. Releasing to
+production version and hotfixes
+
+Production releases are handled quite nicely in git-flow:
+
+    git flow release start 2011_year_of_the_yak
+
+This creates a new branch called release/2011_year_of_the_yak, based on the
+current develop branch. Here you can fix any HISTORY or VERSION file, commit,
+and the finish up the release with:
+
+    git flow release finish 2011_year_of_the_yak
+
+By finishing the release, you now get a tag called 2011_year_of_the_yak, and the
+temporary release-branch is removed. You end up back at the master branch.
+
+A hotfix is simply a feature branch which is based on the latest production
+release, and which is automatically merged to both develop and master. Extremely
+handy.

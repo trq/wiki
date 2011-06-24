@@ -1,0 +1,11 @@
+Key Action  Notes
+Ctrl+a c    new window   
+Ctrl+a n    next window I bind F12 to this
+Ctrl+a p    previous window I bind F11 to this
+Ctrl+a "    select window from list I have window list in the status line
+Ctrl+a Ctrl+a   previous window viewed   
+         
+Ctrl+a S    split terminal horizontally into regions    Ctrl+a c to create new window thread paste buffer from file useful for pasting between screens
+         
+Ctrl+a ?    show key bindings/command names Note unbound commands only in man page
+Ctrl+a :    goto screen command prompt  up shows last command entered

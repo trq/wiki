@@ -8,4 +8,14 @@ Allot of these tips came directly from http://vimcasts.org
 
 == Notes ==
 
-[[NotesFromNote]]
+NotesFromNote
+
+ProemTodos
+
+GitStuff
+
+ScreenStuff
+
+IrssI
+
+IrcStuff

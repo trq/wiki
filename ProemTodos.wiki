@@ -1,0 +1,41 @@
+This simple todo within my vimwiki needs to be moved to the github proem wiki.
+I'll do this tonight. I would love a place to work on this documentation
+on/offline. Stop documenting within code.
+
+**The Url object needs to be refined.**
+
+    * The ability to inject parts (params) into any position within the url would be of awesome benifit and would help move this functionality out of the _Dispatch_ component.
+    
+The dispatch process still needs cleaning. I need to find a flexible method of
+recursively iterating through various 'inject' staratigies.
+
+Getting very close to time to start working on implementing an
+AbstractController, very exciting.
+
+The Url object could still use with some validation.
+
+Create a script to bump the version number.
+
+**Im not merging naything into master until the controllers are in place.**
+
+It's still only a tiny framework we are working on here, this, including all comments:
+
+
+     191 lib//Proem/Application.php
+     113 lib//Proem/Chain/AbstractChain.php
+      74 lib//Proem/Chain/Event/AbstractEvent.php
+      53 lib//Proem/Chain.php
+     158 lib//Proem/Dispatcher/Command.php
+     129 lib//Proem/Dispatcher/Route/AbstractRoute.php
+      74 lib//Proem/Dispatcher/Route/Fixed.php
+     135 lib//Proem/Dispatcher/Route/Map.php
+      69 lib//Proem/Dispatcher/Route/Standard.php
+      98 lib//Proem/Dispatcher/Router.php
+     175 lib//Proem/Dispatcher.php
+      45 lib//Proem/Exception.php
+     198 lib//Proem/IO/Request.php
+      95 lib//Proem/IO/Response.php
+     388 lib//Proem/IO/Url.php
+     114 lib//Proem/Loader.php
+      52 lib//Proem/Proem.php
+    2161 total
