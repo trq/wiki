@@ -6,7 +6,17 @@
 
 == Notes ==
 
-[[NotesFromNote]]
+NotesFromNote
+
+ProemTodos
+
+GitStuff
+
+ScreenStuff
+
+IrssI
+
+IrcStuff
 
 MarkDown
 
