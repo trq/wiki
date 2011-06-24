@@ -1,0 +1,17 @@
+CloneAllBranches
+
+Amend the last commit. You can add files, edit the cmmit message, whatever.
+$ git commit --amend
+
+
+Rename a branch
+$ git branch -m old_branch new_branch
+
+Clone the main svn repo at work.
+$ git svn init svn+ssh://<username>@10.24.0.12/svn/sentral/trunk/www <directory>
+
+Remove untrakced files.
+$ git clean
+
+Undo merge (back to last commit)
+$ git reset --hard HEAD

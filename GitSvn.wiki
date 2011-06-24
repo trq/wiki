@@ -1,0 +1,76 @@
+My new workflow is now as follows:
+
+I have a "master" branch that is the only branch that I dcommit from and that
+clone the SVN repository (-s assume you have a standard SVN layout in the
+repository trunk/, branches/, and tags/):
+
+__git svn clone [-s] <svn-url>__
+
+I work on a local branch "work" (-b creates the branch "work")
+
+__git checkout -b work__
+
+commit locally into the "work" branch (-s to sign-off your commit message). In
+the sequel, I assume you made 3 local commits
+
+...
+__(work)$> git commit -s -m "msg 1"__
+...
+__(work)$> git commit -s -m "msg 2"__
+...
+__(work)$> git commit -s -m "msg 3"__
+
+Now you want to commit onto the SVN server
+
+[Eventually] stash the modifications you don't want to see committed on the SVN
+server (often you commented some code in the main file just because you want to
+accelerate the compilation and focus on a given feature)
+
+__(work)$> git stash__
+
+rebase the master branch with the SVN repository (to update from the SVN server)
+
+__(work)$> git checkout master__
+__(master)$> git svn rebase__
+
+go back to the work branch and rebase with master
+
+__(master)$> git checkout work__
+__(work)$> git rebase master__
+
+Ensure everything is fine using, for instance:
+
+__(work)$> git log --graph --oneline --decorate__
+
+Now it's time to merge all three commits from the "work" branch into "master"
+using this wonderful --no-ff option
+
+__(work)$> git checkout master__
+__(master)$> git merge --no-ff work__
+
+You can notice the status of the logs:
+
+__(master)$> git log --graph --oneline --decorate__
+
+* 56a779b (work, master) Merge branch 'work'
+|\  
+| * af6f7ae msg 3
+| * 8750643 msg 2
+| * 08464ae msg 1
+|/  
+* 21e20fa (git-svn) last svn commit
+
+Now you probably want to edit (amend) the last commit for your SVN dudes
+(otherwise they will only see a single commit with the message "Merge branch
+'work'"
+
+__(master)$> git commit --amend__
+
+Finally commit on the SVN server
+
+__(master)$> git svn dcommit__
+
+Go back to work and eventually recover your stashed files:
+
+__(master)$> git checkout work__
+__(work)$> git stash pop__

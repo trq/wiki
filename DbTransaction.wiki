@@ -1,0 +1,36 @@
+if ($form->post('action') == 'save_group') {
+    try {
+        // Wrap this action in a transaction
+        $db = Sentral_DBFactory::getInstance('Activities');
+        $db->startTransaction();
+
+        $group = new Activities_VenueGroup($form->post('id'));
+        $group->setName($form->post('group_name'));
+        $group->save();
+        $group->resetVenues();
+
+        $names = $form->postArray('values_list-names');
+        $sequences = $form->postArray('values_list-sequences');
+
+        foreach ($form->postArray('values_list-rows') as $row_id => $venue_id) {
+            $venue = new Activities_Venue($venue_id);
+            $venue->setName($names[$row_id]);
+            $venue->setVenueGroupId($group->getId());
+            $venue->setSequence($sequences[$row_id]);
+            $venue->save();
+        }
+        $group->removeOrphanedVenues();
+        $db->commit();
+        print 'OK';
+        exit;
+    } catch (Exception $e) {
+        print $e->getMessage();
+    }
+    Sentral_Http::redirect('venues');
+    exit;
+} elseif ($form->post('action') == 'remove_group') {
+    $group_id = $form->post('group_id');
+    $group = new Activities_VenueGroup($group_id);
+    $group->delete();
+    Sentral_Http::redirect('venues');
+}
