@@ -1,24 +1,24 @@
-My new workflow is now as follows:
+My git-svn workflow is now as follows:
 
 I have a "master" branch that is the only branch that I dcommit from and that
 clone the SVN repository (-s assume you have a standard SVN layout in the
 repository trunk/, branches/, and tags/):
 
-__git svn clone [-s] <svn-url>__
+git svn clone [-s] <svn-url>
 
 I work on a local branch "work" (-b creates the branch "work")
 
-__git checkout -b work__
+git checkout -b work
 
 commit locally into the "work" branch (-s to sign-off your commit message). In
 the sequel, I assume you made 3 local commits
 
 ...
-__(work)$> git commit -s -m "msg 1"__
+(work)$> git commit -s -m "msg 1"
 ...
-__(work)$> git commit -s -m "msg 2"__
+(work)$> git commit -s -m "msg 2"
 ...
-__(work)$> git commit -s -m "msg 3"__
+(work)$> git commit -s -m "msg 3"
 
 Now you want to commit onto the SVN server
 
@@ -26,31 +26,31 @@ Now you want to commit onto the SVN server
 server (often you commented some code in the main file just because you want to
 accelerate the compilation and focus on a given feature)
 
-__(work)$> git stash__
+(work)$> git stash
 
 rebase the master branch with the SVN repository (to update from the SVN server)
 
-__(work)$> git checkout master__
-__(master)$> git svn rebase__
+(work)$> git checkout master
+(master)$> git svn rebase
 
 go back to the work branch and rebase with master
 
-__(master)$> git checkout work__
-__(work)$> git rebase master__
+(master)$> git checkout work
+(work)$> git rebase master
 
 Ensure everything is fine using, for instance:
 
-__(work)$> git log --graph --oneline --decorate__
+(work)$> git log --graph --oneline --decorate
 
 Now it's time to merge all three commits from the "work" branch into "master"
 using this wonderful --no-ff option
 
-__(work)$> git checkout master__
-__(master)$> git merge --no-ff work__
+(work)$> git checkout master
+(master)$> git merge --no-ff work
 
 You can notice the status of the logs:
 
-__(master)$> git log --graph --oneline --decorate__
+(master)$> git log --graph --oneline --decorate
 
 * 56a779b (work, master) Merge branch 'work'
 |\  
@@ -64,13 +64,13 @@ Now you probably want to edit (amend) the last commit for your SVN dudes
 (otherwise they will only see a single commit with the message "Merge branch
 'work'"
 
-__(master)$> git commit --amend__
+(master)$> git commit --amend
 
 Finally commit on the SVN server
 
-__(master)$> git svn dcommit__
+(master)$> git svn dcommit
 
 Go back to work and eventually recover your stashed files:
 
-__(master)$> git checkout work__
-__(work)$> git stash pop__
+(master)$> git checkout work
+(work)$> git stash pop

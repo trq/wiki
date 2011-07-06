@@ -1,5 +1,6 @@
 CloneAllBranches
 ModernizeYourGitWorkflow
+GoodLinks
 
 Amend the last commit. You can add files, edit the cmmit message, whatever.
 $ git commit --amend
