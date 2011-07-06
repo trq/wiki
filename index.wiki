@@ -10,8 +10,6 @@ NotesFromNote
 
 ProemTodos
 
-GitStuff
-
 ScreenStuff
 
 IrssI
@@ -25,3 +23,5 @@ GitSvn
 GitStuff
 
 WorkStuff
+
+FuntooAndStuff
