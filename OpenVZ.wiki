@@ -1,0 +1,19 @@
+To do replacements:
+
+:%s/{VZ}/foo/g
+
+Create a new vps:
+
+sudo vzctl create {VZ} --ostemplate myfuntoo
+
+Set unlited config (other options are in /etc/vz/conf):
+
+sudo vzctl set {VZ} --applyconfig unlimited --save
+
+Add network interface:
+
+sudo vzctl set {VZ} --netif_add eth0,,,,br0 --save
+
+More options:
+
+sudo vzctl set {VZ} --ipadd 10.1.1.{VZ} --name {HOST} --nameserver 10.1.1.3 --hostname {HOST} --save
